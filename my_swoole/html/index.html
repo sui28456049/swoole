@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<h1>天天好好</h1>
+
+<body>
+<script>
+    ws = new WebSocket("ws://swoole.sadprincess.com:9501");
+
+    ws.onopen = function() {
+        console.log("连接成功");
+        ws.send('help me');
+    };
+    ws.onmessage = function(e) {
+        console.log("收到服务端的消息：" + e.data);
+    };
+    ws.onclose = function(e) {
+        console.log('关闭');
+    };
+</script>
+</body>
+</html>
